@@ -65,13 +65,25 @@ public class JetsApplication {
 				System.out.println(longestRange());
 				break;
 			case "5":
-				loadCargo(LoadCargo());
+				System.out.println("You load up....");
+				af.loadCargo();
 				break;
 			case "6":
 				// dogfight();
 				break;
 			case "7":
-				// af.addJet();
+				System.out.println("So you want to add a jet into our hanger?");
+				System.out.println("What's your jets model?");
+				String model = sc.next();
+				System.out.println("and how fast does it go? (in mph)");
+				double speed = sc.nextDouble();
+				System.out.println("and it's range? (in miles)");
+				int range = sc.nextInt();
+				System.out.println("and finally..it's price?");
+				long price = sc.nextLong();
+				JetImpl newJet = new JetImpl(String model, double speed, int range, long price);
+				af.addJet(newJet);
+				System.out.println(newJet);
 				break;
 			case "8":
 				break;
@@ -106,4 +118,6 @@ public class JetsApplication {
 		}
 		return longestJet;
 	}
+	
+	
 }

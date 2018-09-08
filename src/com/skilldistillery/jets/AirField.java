@@ -10,10 +10,10 @@ public class AirField {
 	public AirField() {
 	}
 
-	public void addJet(Jet jet) {
+	public void addJet(Jet newJet) {
 		for(int i = 0; i < hanger.length; i++) {
 			if (hanger[i] == null) {
-				hanger[i] = jet;
+				hanger[i] = newJet;
 				counter++;
 				break;
 			}
@@ -83,7 +83,25 @@ public class AirField {
 			
 		}
 	}
+	
+	/*private Jet longestRange() {
+		Jet[] tempJets = af.getHanger();
+		Jet longestJet = tempJets[0];
+		for (int i = 0; i < tempJets.length; i++) {
+			if (tempJets[i] != null) {
+				if (tempJets[i].getRange() > longestJet.getRange()) {
+					longestJet = tempJets[i];*/
 
+	public void loadCargo() {
+		for( Jet jet : hanger ) { 
+			if (jet != null) {
+				if (jet instanceof CargoCarrier) {
+					((CargoCarrier)jet).loadCargo();
+				}
+			}
+		}
+			
+	}
 
 	public Jet[] getHanger() {
 		return hanger;

@@ -6,10 +6,8 @@ public class CargoPlane extends Jet implements CargoCarrier {
 		super(model, speed, range, price);
 	}
 
-	@Override
 	public void loadCargo() {
-		System.out.println("You load up all the cargo planes. They are ready for takeoff");
-
+		System.out.println(getModel());
 		
 	}
 
