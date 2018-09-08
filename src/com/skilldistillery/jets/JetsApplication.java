@@ -5,21 +5,39 @@ import java.util.Scanner;
 public class JetsApplication {
 	Scanner sc = new Scanner(System.in);
 
+	static AirField af = new AirField();
+
 	public static void main(String[] args) {
+
+		Jet jet1 = new FighterJet("F22", 1498, 1839, 150_000_000);
+		Jet jet2 = new FighterJet("F35", 1550, 1200, 95_000_000);
+		Jet jet3 = new FighterJet("F15", 1656, 2992, 100_000_000);
+		Jet jet4 = new FighterJet("F16", 1500, 2622, 19_000_000);
+		Jet jet5 = new FighterJet("J10", 1446, 1150, 190_000_000);
+		Jet jet6 = new CargoPlane("Boeing 747 Dreamlifter", 776, 4847, 357_000_000);
+		Jet jet7 = new CargoPlane("Airbus A300 Beluga", 483, 4000, 284_000_000);
+		Jet jet8 = new CargoPlane("Aero Spacelines Super Guppy", 253, 2000, 500_000_000);
+
+		af.addJet(jet1);
+		af.addJet(jet2);
+		af.addJet(jet3);
+		af.addJet(jet4);
+		af.addJet(jet5);
+		af.addJet(jet6);
+		af.addJet(jet7);
+		af.addJet(jet8);
 
 		JetsApplication app = new JetsApplication();
 		app.launch();
 	}
 
 	public void launch() {
-		
+		displayUserMenu();
 	}
-	
 
 	public void displayUserMenu() {
-		String input;
-		AirField af = new AirField();
-		
+		String input = "";
+
 		do {
 			System.out.println("1. List fleet");
 			System.out.println("2. Fly all jets");
@@ -29,97 +47,63 @@ public class JetsApplication {
 			System.out.println("6. Dogfight");
 			System.out.println("7. Add a jet to the fleet");
 			System.out.println("8. Exit program");
-			sc.next();
-		
-		switch (input) {
-		default:
-			System.out.println("Please enter a valid response");
-			displayUserMenu();
-		case "1": 
-			af.airField();
-			displayUserMenu();
-		case "2":
-			//flyAllJets();
-			displayUserMenu();
-			break;
-		case "3":
-			//fastestJet();
-			//in the fighterJet class
-			displayUserMenu();
-			break;
-		case "4":
-			//longestRange();
-			displayUserMenu();
-			break;
-		case "5":
-			//loadCargo();
-			displayUserMenu();
-			break;
-		case "6":
-			//dogfight();
-			break;
-		case "7":
-		//	addJet();
-			break;
-		case "8":
-			break;
-		} while (!input.equals("1") ||  (!input.equals("2")) || (!input.equals("3")) || (!input.equals("4")) || (!input.equals("5"))
-		|| (!input.equals("6")) || (!input.equals("7")) || (!input.equals("8"))); 
+			input = sc.nextLine();
 
-}
-		
-		public void flyAllJets(Jet[] jet) {
-			Scanner scanner = new Scanner(System.in);
-			System.out.println("Which plane would you like to fly?");
-			System.out.println("1. " + jet[0].getModel());
-			System.out.println("2. " + jet[1].getModel());
-			System.out.println("3. " + jet[2].getModel());
-			System.out.println("4. " + jet[3].getModel());
-			System.out.println("5. " + jet[4].getModel());
-			System.out.println("Quit");
-			String input = scanner.nextLine();
-			
-			if (input.equals("1")) {
-				System.out.println("The " + jet[0].getModel() + "take's flight..");
-				System.out.println();
-				System.out.println(jet[0] + "");
-					// print specs of the jet here^^^^^
-				System.out.println("The plane will be able to travel approximately " + (jet[0].getRange() / jet[0].getSpeed()) + " miles before needing to refuel");
-			}
-			if (input.equals("2")) {
-				System.out.println("The " + jet[1].getModel() + "take's flight..");
-				System.out.println();
-				System.out.println(jet[0] + "");
-						// print specs of the jet here^^^^^
-						System.out.println("The plane will be able to travel approximately " + (jet[1].getRange() / jet[1].getSpeed()) + " miles before needing to refuel");
-			}
-			if (input.equals("3")) {
-				System.out.println("The " + jet[2].getModel() + "take's flight..");
-				System.out.println();
-				System.out.println(jet[0] + "");
-						// print specs of the jet here^^^^^
-				System.out.println("The plane will be able to travel approximately " + (jet[2].getRange() / jet[2].getSpeed()) + " miles before needing to refuel");
-			}
-			if (input.equals("4")) {
-				System.out.println("The " + jet[3].getModel() + "take's flight..");
-				System.out.println();
-				System.out.println(jet[0] + "");
-						// print specs of the jet here^^^^^
-						System.out.println("The plane will be able to travel approximately " + (jet[3].getRange() / jet[3].getSpeed()) + " miles before needing to refuel");
-			}
-			if (input.equals("5")) {
-				System.out.println("The " + jet[4].getModel() + "take's flight..");
-				System.out.println();
-				System.out.println(jet[0] + "");
-						// print specs of the jet here^^^^^
-						System.out.println("The plane will be able to travel approximately " + (jet[4].getRange() / jet[4].getSpeed()) + " miles before needing to refuel");
-			}
-			if (input.equals("Quit")) {
-				displayUserMenu();
+			switch (input) {
+			case "1":
+				af.airField();
 				break;
+			case "2":
+				af.flyAllJets(af.getHanger());
+				break;
+			case "3":
+				fastestJet();
+				System.out.println(fastestJet());
+				break;
+			case "4":
+				longestRange();
+				System.out.println(longestRange());
+				break;
+			case "5":
+				loadCargo(LoadCargo());
+				break;
+			case "6":
+				// dogfight();
+				break;
+			case "7":
+				// af.addJet();
+				break;
+			case "8":
+				break;
+			default:
+				System.out.println("Please enter a valid response");
 			}
-			else {
-				System.out.print("Error, please enter a valid response: ");
-				scanner.next();
+		} while (!input.equals("8"));
+	}
+
+	public Jet fastestJet() {
+		Jet[] tempJets = af.getHanger();
+		Jet fastestJet = tempJets[0];
+		for (int i = 0; i < tempJets.length; i++) {
+			if (tempJets[i] != null) {
+				if (tempJets[i].getSpeed() > fastestJet.getSpeed()) {
+					fastestJet = tempJets[i];
+				}
 			}
 		}
+		return fastestJet;
+	}
+
+	private Jet longestRange() {
+		Jet[] tempJets = af.getHanger();
+		Jet longestJet = tempJets[0];
+		for (int i = 0; i < tempJets.length; i++) {
+			if (tempJets[i] != null) {
+				if (tempJets[i].getRange() > longestJet.getRange()) {
+					longestJet = tempJets[i];
+				}
+			}
+		}
+		return longestJet;
+	}
+}

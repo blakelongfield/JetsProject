@@ -1,41 +1,111 @@
 package com.skilldistillery.jets;
 
+import java.util.Scanner;
+
 public class AirField {
-
-	Jet[] jets = new Jet[100];
-
-	public Jet[] getJets() {
-		return jets;
-	}
-
-	public void setJets(Jet[] jets) {
-		this.jets = jets;
+	private Jet[] hanger = new Jet[100];
+	private int jetCount;
+	int counter = 0;
+	
+	public AirField() {
 	}
 
 	public void addJet(Jet jet) {
-	}
-
-	public void airField() {
-		
-		jets[0] = new FighterJet("F22", 1_498, 1839, 150_000_000);
-		jets[1] = new FighterJet("F35", 1550, 1200, 95_000_000);
-		jets[2] = new FighterJet("F15", 1656, 2992, 100_000_000);
-		jets[3] = new FighterJet("F16", 1500, 2622, 19_000_000);
-		jets[4] = new FighterJet("J10", 1446, 1150, 190_000_000);
-		jets[5] = new CargoPlane("Boeing 747 Dreamlifter", 776, 4847, 357_000_000);
-		jets[6] = new CargoPlane("Airbus A300 Beluga", 483, 4000, 284_000_000);
-		jets[7] = new CargoPlane("Aero Spacelines Super Guppy", 253, 2000, 500_000_000);
-
-		int counter = 0;
-		if (counter <= jets.length) {
-			for (int i = 0; i < jets.length; i++) {
-				Jet j = jets[i];
-				if (j != null) {
-					System.out.println("The jet parked in hanger: " + counter + " is an " + i);
-					counter++;
-					break;
+		for(int i = 0; i < hanger.length; i++) {
+			if (hanger[i] == null) {
+				hanger[i] = jet;
+				counter++;
+				break;
 			}
 		}
 	}
+
+	public void airField() {
+
+		if (counter <= hanger.length) {
+			for (int i = 0; i < hanger.length; i++) {
+				Jet j = hanger[i];
+				if (j == null) {
+					break;
+			}
+				System.out.println(hanger[i]);
+				counter++;
+		}
+	}
 }
+	public void flyAllJets(Jet[] jet) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Which plane would you like to fly?");
+		System.out.println("1. " + jet[0].getModel());
+		System.out.println("2. " + jet[1].getModel());
+		System.out.println("3. " + jet[2].getModel());
+		System.out.println("4. " + jet[3].getModel());
+		System.out.println("5. " + jet[4].getModel());
+		System.out.println("Quit");
+		String input = scanner.nextLine();
+		
+		if (input.equals("1")) {
+			System.out.println("The " + jet[0].getModel() + " take's flight..");
+			System.out.println();
+			System.out.println(jet[0]);
+			System.out.println("The plane will be able to travel approximately " + (jet[0].getRange() / jet[0].getSpeed()) + " hours before needing to refuel");
+			System.out.println();
+		}
+		if (input.equals("2")) {
+			System.out.println("The " + jet[1].getModel() + " take's flight..");
+			System.out.println();
+			System.out.println(jet[0]);
+					System.out.println("The plane will be able to travel approximately " + (jet[1].getRange() / jet[1].getSpeed()) + " hours before needing to refuel");
+					System.out.println();
+		}
+		if (input.equals("3")) {
+			System.out.println("The " + jet[2].getModel() + " take's flight..");
+			System.out.println();
+			System.out.println(jet[0]);
+			System.out.println("The plane will be able to travel approximately " + (jet[2].getRange() / jet[2].getSpeed()) + " hours before needing to refuel");
+			System.out.println();
+		}
+		if (input.equals("4")) {
+			System.out.println("The " + jet[3].getModel() + " take's flight..");
+			System.out.println();
+			System.out.println(jet[0]);
+					System.out.println("The plane will be able to travel approximately " + (jet[3].getRange() / jet[3].getSpeed()) + " hours before needing to refuel");
+					System.out.println();
+		}
+		if (input.equals("5")) {
+			System.out.println("The " + jet[4].getModel() + " take's flight..");
+			System.out.println();
+			System.out.println(jet[0]);
+					System.out.println("The plane will be able to travel approximately " + (jet[4].getRange() / jet[4].getSpeed()) + " hours before needing to refuel");
+					System.out.println();
+		}
+		if (input.equals("Quit")) {
+			
+		}
+	}
+
+
+	public Jet[] getHanger() {
+		return hanger;
+	}
+
+	public void setHanger(Jet[] hanger) {
+		this.hanger = hanger;
+	}
+
+	public int getJetCount() {
+		return jetCount;
+	}
+
+	public void setJetCount(int jetCount) {
+		this.jetCount = jetCount;
+	}
+
+	public int getCounter() {
+		return counter;
+	}
+
+	public void setCounter(int counter) {
+		this.counter = counter;
+	}
 }

@@ -7,6 +7,11 @@ public abstract class Jet {
 	private int range;
 	private long price;
 
+	public Jet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Jet(String model, double speed, int range, long price) {
 		this.model = model;
 		this.speed = speed;
@@ -55,4 +60,9 @@ public abstract class Jet {
 	public void setPrice(long price) {
 		this.price = price;
 }
+
+	@Override
+	public String toString() {
+		return "Model: " + model + ", Speed: " + speed + ", Range: " + range + ", Price: " + price;
+	}
 }
