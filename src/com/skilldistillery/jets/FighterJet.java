@@ -8,12 +8,17 @@ public class FighterJet extends Jet implements CombatReady {
 	
 	public FighterJet() {
 	}
+	
 	public FighterJet(String model, int mph, int range, long price) {
 	}
 
 	public FighterJet(FighterJet fighterJet) {
 		super();
 		this.fighterJet = fighterJet;
+	}
+	
+	public void fastestJet() {
+		// "The fastest jet currently in our hangers is a " + 
 	}
 
 	@Override
