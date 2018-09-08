@@ -69,7 +69,7 @@ public class JetsApplication {
 				af.loadCargo();
 				break;
 			case "6":
-				// dogfight();
+				//af.dogfight();
 				break;
 			case "7":
 				System.out.println("So you want to add a jet into our hanger?");
@@ -81,9 +81,10 @@ public class JetsApplication {
 				int range = sc.nextInt();
 				System.out.println("and finally..it's price?");
 				long price = sc.nextLong();
-				JetImpl newJet = new JetImpl(String model, double speed, int range, long price);
+				JetImpl newJet = new JetImpl(model, speed, range, price);
 				af.addJet(newJet);
 				System.out.println(newJet);
+				sc.nextLine();
 				break;
 			case "8":
 				break;
@@ -91,6 +92,8 @@ public class JetsApplication {
 				System.out.println("Please enter a valid response");
 			}
 		} while (!input.equals("8"));
+		
+		sc.close();
 	}
 
 	public Jet fastestJet() {

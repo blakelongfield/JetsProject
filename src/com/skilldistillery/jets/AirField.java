@@ -14,7 +14,6 @@ public class AirField {
 		for(int i = 0; i < hanger.length; i++) {
 			if (hanger[i] == null) {
 				hanger[i] = newJet;
-				counter++;
 				break;
 			}
 		}
