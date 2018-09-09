@@ -5,7 +5,7 @@
 This program displays and manages a fleet of Jet objects.
 
 ### Overview
-https://github.com/SkillDistillery/SD17/blob/master/java1/Jets/images/UMLJets.png?raw=true
+UML can be accessed here: https://github.com/SkillDistillery/SD17/blob/master/java1/Jets/images/UMLJets.png?raw=true
 
 To run the program, you will need to be in the main class, JetsApplication.  When the program launches, the user will be prompted with a display menu. The display menu has 8 options and the user may enter into any of those options at any point. 
 
