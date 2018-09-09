@@ -34,13 +34,13 @@ public class AirField {
 }
 	public void flyAllJets(Jet[] jet) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Which plane would you like to fly?");
+		System.out.println("Which jet would you like to fly?");
 		System.out.println("1. " + jet[0].getModel());
 		System.out.println("2. " + jet[1].getModel());
 		System.out.println("3. " + jet[2].getModel());
 		System.out.println("4. " + jet[3].getModel());
 		System.out.println("5. " + jet[4].getModel());
-		System.out.println("Quit");
+		System.out.println("[B]ack to main menu");
 		String input = scanner.nextLine();
 		
 		if (input.equals("1")) {
@@ -78,18 +78,10 @@ public class AirField {
 					System.out.println("The plane will be able to travel approximately " + (jet[4].getRange() / jet[4].getSpeed()) + " hours before needing to refuel");
 					System.out.println();
 		}
-		if (input.equals("Quit")) {
-			
+		if ((input.equals("B") || input.equals("b") || input.equals("back") || input.equals("BACK")))
+				{
 		}
 	}
-	
-	/*private Jet longestRange() {
-		Jet[] tempJets = af.getHanger();
-		Jet longestJet = tempJets[0];
-		for (int i = 0; i < tempJets.length; i++) {
-			if (tempJets[i] != null) {
-				if (tempJets[i].getRange() > longestJet.getRange()) {
-					longestJet = tempJets[i];*/
 
 	public void loadCargo() {
 		for( Jet jet : hanger ) { 
@@ -100,6 +92,16 @@ public class AirField {
 			}
 		}
 			
+	}
+	public void prepareForBattle() {
+		for (Jet jet : hanger) {
+			if (jet != null) {
+				if (jet instanceof FighterJet) {
+					((FighterJet)jet).prepareForBattle();
+				}
+			}
+		}
+		
 	}
 
 	public Jet[] getHanger() {
@@ -125,4 +127,5 @@ public class AirField {
 	public void setCounter(int counter) {
 		this.counter = counter;
 	}
+
 }

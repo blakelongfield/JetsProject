@@ -65,11 +65,12 @@ public class JetsApplication {
 				System.out.println(longestRange());
 				break;
 			case "5":
-				System.out.println("You load up....");
+				System.out.println("You load up the cargo planes....");
 				af.loadCargo();
 				break;
 			case "6":
-				//af.dogfight();
+				System.out.println("The following jets in the hanger are suited with missles and prepped for combat.");
+				af.prepareForBattle();
 				break;
 			case "7":
 				System.out.println("So you want to add a jet into our hanger?");
