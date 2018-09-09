@@ -3,7 +3,6 @@ package com.skilldistillery.jets;
 public class FighterJet extends Jet implements CombatReady {
 	String model;
 	
-	
 	public FighterJet() {
 	}
 	
@@ -12,13 +11,7 @@ public class FighterJet extends Jet implements CombatReady {
 	}
 
 	public void prepareForBattle() {
-		System.out.println(this.getModel());
-		
+		System.out.println(this.getModel());		
 	}
-
-
+	
 }
-
-
-
-
