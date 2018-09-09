@@ -34,14 +34,15 @@ public class AirField {
 }
 	public void flyAllJets(Jet[] jet) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Which jet would you like to fly?");
+		System.out.println("Which jet in the hangar would you like to fly?");
 		System.out.println("1. " + jet[0].getModel());
 		System.out.println("2. " + jet[1].getModel());
 		System.out.println("3. " + jet[2].getModel());
 		System.out.println("4. " + jet[3].getModel());
 		System.out.println("5. " + jet[4].getModel());
-		System.out.println("[B]ack to main menu");
-		String input = scanner.nextLine();
+		System.out.println("Press any other key to return to main menu.");
+		System.out.print(">: ");
+		String input = scanner.next();
 		
 		if (input.equals("1")) {
 			System.out.println("The " + jet[0].getModel() + " take's flight..");
@@ -50,28 +51,28 @@ public class AirField {
 			System.out.println("The plane will be able to travel approximately " + (jet[0].getRange() / jet[0].getSpeed()) + " hours before needing to refuel");
 			System.out.println();
 		}
-		if (input.equals("2")) {
+		else if (input.equals("2")) {
 			System.out.println("The " + jet[1].getModel() + " take's flight..");
 			System.out.println();
 			System.out.println(jet[0]);
 					System.out.println("The plane will be able to travel approximately " + (jet[1].getRange() / jet[1].getSpeed()) + " hours before needing to refuel");
 					System.out.println();
 		}
-		if (input.equals("3")) {
+		else if (input.equals("3")) {
 			System.out.println("The " + jet[2].getModel() + " take's flight..");
 			System.out.println();
 			System.out.println(jet[0]);
 			System.out.println("The plane will be able to travel approximately " + (jet[2].getRange() / jet[2].getSpeed()) + " hours before needing to refuel");
 			System.out.println();
 		}
-		if (input.equals("4")) {
+		else if (input.equals("4")) {
 			System.out.println("The " + jet[3].getModel() + " take's flight..");
 			System.out.println();
 			System.out.println(jet[0]);
 					System.out.println("The plane will be able to travel approximately " + (jet[3].getRange() / jet[3].getSpeed()) + " hours before needing to refuel");
 					System.out.println();
 		}
-		if (input.equals("5")) {
+		else if (input.equals("5")) {
 			System.out.println("The " + jet[4].getModel() + " take's flight..");
 			System.out.println();
 			System.out.println(jet[0]);
@@ -79,7 +80,8 @@ public class AirField {
 					System.out.println();
 		}
 		if ((input.equals("B") || input.equals("b") || input.equals("back") || input.equals("BACK")))
-				{
+			return;
+		{
 		}
 	}
 

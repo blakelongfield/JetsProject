@@ -63,6 +63,6 @@ public abstract class Jet {
 
 	@Override
 	public String toString() {
-		return "Model: " + model + ", Speed: " + speed + ", Range: " + range + ", Price: " + price;
+		return "Model: " + model + ", Top Speed: " + speed + " mph, Range: " + range + " miles, Price: $" + price;
 	}
 }

@@ -39,15 +39,16 @@ public class JetsApplication {
 		String input = "";
 
 		do {
-			System.out.println("1. List fleet");
-			System.out.println("2. Fly all jets");
-			System.out.println("3. View fastest jet");
-			System.out.println("4. View jet with longest range");
-			System.out.println("5. Load all Cargo Jets");
-			System.out.println("6. Dogfight");
+			System.out.println("1. View the entire fleet");
+			System.out.println("2. Take one of the jets out for a spin");
+			System.out.println("3. View the fastest plane");
+			System.out.println("4. View the plane with the longest range");
+			System.out.println("5. Load the Cargo Jets in the hangar");
+			System.out.println("6. Gear the jets up for combat");
 			System.out.println("7. Add a jet to the fleet");
 			System.out.println("8. Exit program");
-			input = sc.nextLine();
+			System.out.print(">: ");
+			input = sc.next();
 
 			switch (input) {
 			case "1":
@@ -73,10 +74,11 @@ public class JetsApplication {
 				af.prepareForBattle();
 				break;
 			case "7":
-				System.out.println("So you want to add a jet into our hanger?");
-				System.out.println("What's your jets model?");
+				System.out.println("So, you want to add a jet into our hanger?");
+				System.out.println("We just need a bit of information first");
+				System.out.println("Ok, what's your jets model?");
 				String model = sc.next();
-				System.out.println("and how fast does it go? (in mph)");
+				System.out.println("..and what's your jets top speed? (in mph)");
 				double speed = sc.nextDouble();
 				System.out.println("and it's range? (in miles)");
 				int range = sc.nextInt();
@@ -93,7 +95,7 @@ public class JetsApplication {
 				System.out.println("Please enter a valid response");
 			}
 		} while (!input.equals("8"));
-		
+
 		sc.close();
 	}
 
@@ -122,6 +124,5 @@ public class JetsApplication {
 		}
 		return longestJet;
 	}
-	
-	
+
 }
