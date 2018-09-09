@@ -55,7 +55,7 @@ public class JetsApplication {
 				af.airField();
 				break;
 			case "2":
-				af.flyAllJets(af.getHanger());
+				af.flyAllJets(af.getHangar());
 				break;
 			case "3":
 				fastestJet();
@@ -70,11 +70,11 @@ public class JetsApplication {
 				af.loadCargo();
 				break;
 			case "6":
-				System.out.println("The following jets in the hanger are suited with missles and prepped for combat.");
+				System.out.println("The following jets in the hangar are suited with missles and prepped for combat.");
 				af.prepareForBattle();
 				break;
 			case "7":
-				System.out.println("So, you want to add a jet into our hanger?");
+				System.out.println("So, you want to add a jet into our hangar?");
 				System.out.println("We just need a bit of information first");
 				System.out.println("Ok, what's your jets model?");
 				String model = sc.next();
@@ -100,7 +100,7 @@ public class JetsApplication {
 	}
 
 	public Jet fastestJet() {
-		Jet[] tempJets = af.getHanger();
+		Jet[] tempJets = af.getHangar();
 		Jet fastestJet = tempJets[0];
 		for (int i = 0; i < tempJets.length; i++) {
 			if (tempJets[i] != null) {
@@ -113,7 +113,7 @@ public class JetsApplication {
 	}
 
 	private Jet longestRange() {
-		Jet[] tempJets = af.getHanger();
+		Jet[] tempJets = af.getHangar();
 		Jet longestJet = tempJets[0];
 		for (int i = 0; i < tempJets.length; i++) {
 			if (tempJets[i] != null) {
